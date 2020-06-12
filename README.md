@@ -1,2 +1,30 @@
-# ObjLoader
-ObjLoader C#
+# 
+
+<h1 align="center">
+   ObjLoader
+  <br>
+  
+  ##               ObjLoader
+  
+</h1>
+
+<hr>
+
+
+<br>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Zeckoxe/ObjLoader/blob/master/LICENSE)
+
+The code is licensed under MIT. Feel free to use it for whatever purpose.
+
+<hr>
+<br>
+
+
+
+## Low-level rendering backend
+
+Tiny but powerful single file wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
+
+<br>
+
