@@ -4,7 +4,7 @@
   <br>
   
   ##               ObjLoader
-  Tiny but powerful single file wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
+  Tiny but powerful wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
   
 </h1>
 
