@@ -4,6 +4,7 @@
   <br>
   
   ##               ObjLoader
+  Tiny but powerful single file wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
   
 </h1>
 
@@ -23,7 +24,7 @@ The code is licensed under MIT. Feel free to use it for whatever purpose.
 
 ### Based on tinyobjloader: (<https://github.com/tinyobjloader/tinyobjloader>)
 
-Tiny but powerful single file wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
+
 
 <br>
 
