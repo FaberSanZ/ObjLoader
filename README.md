@@ -1,4 +1,3 @@
-# 
 
 <h1 align="center">
    ObjLoader
@@ -22,7 +21,7 @@ The code is licensed under MIT. Feel free to use it for whatever purpose.
 
 
 
-## based on tinyobjloader (<https://github.com/tinyobjloader/tinyobjloader>)
+### Based on tinyobjloader: (<https://github.com/tinyobjloader/tinyobjloader>)
 
 Tiny but powerful single file wavefront obj loader written in C#. No dependency . It can parse over 10M polygons with moderate memory and time.
 
