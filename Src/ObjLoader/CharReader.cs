@@ -15,32 +15,31 @@ namespace ObjLoader
 {
 	public class CharReader
 	{
-		private readonly StringReader m_input;
+		private readonly StringReader _input;
 
 		public CharReader(string input)
 		{
-			m_input = new StringReader(input);
+			_input = new StringReader(input);
 		}
 
-		public bool Eof => m_input.Peek() == -1;
+		public bool Eof => _input.Peek() is -1;
 
-		public char Current
-		{
-			get
-			{
-				int val = m_input.Peek();
-				if (val == -1)
-				{
-					return (char)0;
-				}
+		public char Current => Peek(0);
 
-				return (char)val;
+		public char Peek(int offset)
+        {
+			int peek = _input.Peek();
+            if (peek is -1 || peek + offset is -1)
+            {
+				return (char)(peek + offset);
 			}
+
+			return '\0';
 		}
 
 		public void MoveNext()
 		{
-			m_input.Read();
+			_input.Read();
 		}
 	}
 }
