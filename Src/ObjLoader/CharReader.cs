@@ -6,40 +6,33 @@
 
 
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace ObjLoader
 {
-	public class CharReader
-	{
-		private readonly StringReader _input;
+    public class CharReader
+    {
+        private readonly StringReader _input;
 
-		public CharReader(string input)
-		{
-			_input = new StringReader(input);
-		}
-
-		public bool Eof => _input.Peek() is -1;
-
-		public char Current => Peek(0);
-
-		public char Peek(int offset)
+        public CharReader(string input)
         {
-			int peek = _input.Peek();
-            if (peek is -1 || peek + offset is -1)
-            {
-				return (char)(peek + offset);
-			}
+            _input = new StringReader(input);
+        }
 
-			return '\0';
-		}
+        public bool Eof => _input.Peek() is -1;
 
-		public void MoveNext()
-		{
-			_input.Read();
-		}
-	}
+        public char Current => Peek(0);
+
+        public char Peek(int offset)
+        {
+            int peek = _input.Peek();
+
+            return (peek is -1 || peek + offset is -1) ? '\0' : (char)(peek + offset);
+        }
+
+        public void MoveNext()
+        {
+            _input.Read();
+        }
+    }
 }

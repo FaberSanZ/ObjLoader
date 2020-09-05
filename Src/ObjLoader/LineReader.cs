@@ -12,6 +12,9 @@ namespace ObjLoader
 {
     public class LineReader
     {
+
+        private readonly TextReader _reader;
+
         public LineReader(string inputLine)
         {
             if (inputLine == null)
@@ -24,21 +27,29 @@ namespace ObjLoader
             }
         }
 
-        private readonly TextReader _reader;
         public bool Eof { get; set; }
 
 
+        public int Current => Peek(0);
+
+
+        public int Peek(int offset)
+        {
+            int peek = _reader.Peek();
+
+            return (peek is -1 || peek + offset is -1) ? '\0' : (peek + offset);
+        }
 
         public string ReadWord()
         {
             if (Eof)
             {
-                return "";
+                return string.Empty;
             }
 
             StringBuilder ret = new StringBuilder();
 
-            while (_reader.Peek() != -1)
+            while (Current is not -1)
             {
                 char c = (char)_reader.Read();
                 if (c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == '\0')
@@ -54,7 +65,7 @@ namespace ObjLoader
                 ret.Append(c);
             }
 
-            if (ret.Length == 0 || _reader.Peek() == -1)
+            if (ret.Length is 0 || Current is -1)
             {
                 Eof = true;
             }
@@ -65,7 +76,8 @@ namespace ObjLoader
         public string[] ReadWordSplit(params char[] separator)
         {
             string str = ReadWord();
-            if (str != null)
+
+            if (str is not null)
             {
                 return str.Split(separator);
             }
@@ -79,7 +91,7 @@ namespace ObjLoader
         {
             string input = ReadWord();
 
-            if (input != null && int.TryParse(input, out int ret))
+            if (input is not null && int.TryParse(input, out int ret))
             {
                 return ret;
             }
@@ -90,7 +102,7 @@ namespace ObjLoader
         public string[] ReadSplit(params char[] separator)
         {
             string str = _reader.ReadLine();
-            if (str == null)
+            if (str is null)
             {
                 return new string[0];
             }
@@ -106,7 +118,7 @@ namespace ObjLoader
             }
             finally
             {
-                Eof = _reader.Peek() == -1;
+                Eof = Current is -1;
             }
         }
     }
